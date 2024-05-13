@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 class Institucion(models.Model):
     nombre = models.CharField(max_length=255, unique=True)
@@ -23,8 +24,8 @@ class Paciente(models.Model):
 class TipoDeConsulta(models.Model):
     nombre = models.CharField(max_length=255)
     monto = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    pagado = models.BooleanField()
-    fecha = models.DateField()
+    pagado = models.BooleanField(default=False)
+    fecha = models.DateField(default=datetime.date.today)
     profesional = models.ForeignKey('Profesional', on_delete=models.CASCADE)
 
     def __str__(self):
