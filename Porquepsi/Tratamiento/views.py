@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+from . import models
+
+def index(request):
+    consulta = models.TipoDeConsulta.objects.all()
+    contexto = {"tipos" : consulta}
+    return render(request, "Tratamiento/index.html", contexto)
