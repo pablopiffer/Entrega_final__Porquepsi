@@ -23,6 +23,8 @@ class Paciente(models.Model):
 class TipoDeConsulta(models.Model):
     nombre = models.CharField(max_length=255)
     monto = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    pagado = models.BooleanField()
+    fecha = models.DateField()
     profesional = models.ForeignKey('Profesional', on_delete=models.CASCADE)
 
     def __str__(self):
