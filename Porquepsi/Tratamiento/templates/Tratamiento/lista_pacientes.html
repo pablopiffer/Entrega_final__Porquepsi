@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% block title %}
+    Tus pacientes    
+{% endblock title %}
+{% block body_title %}
+    Tu listado de pacientes
+{% endblock body_title %}
+{% block content %}
+    <div class="pb-lg-3">
+        <form action="{% url 'Tratamiento:lista_pacientes' %}"" method="get">
+            <input type="text" name="busqueda" placeholder="Buscar...">
+        </form>
+    </div>
+
+    <ul>
+        {% for pac in paciente %}
+            <li>
+                {{ pac.nombre }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

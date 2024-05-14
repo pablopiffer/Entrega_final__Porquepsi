@@ -1,9 +1,13 @@
 from django.urls import path
 
-from . import views
+from Tratamiento.views import (
+    index,
+    lista_pacientes
+)
 
 app_name = "Tratamiento"
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", index, name="index"),
+    path("Tratamiento/lista_pacientes", lista_pacientes, name="lista_pacientes")
 ] 

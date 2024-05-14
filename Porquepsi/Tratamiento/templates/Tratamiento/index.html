@@ -1,13 +1,11 @@
 {% extends 'core/base.html' %}
 
-{% block titulo %}
-    Tipo de Consulta    
-{% endblock titulo %}
+{% block title %}
+    Tus Sesiones    
+{% endblock title %}
 
-{% block contenido %}
-    {% for tipo in tipos %}
-        <h1>{{ tipo.nombre }}</h1>
-        <h2>{{ tipo.profesional }}</h2>
-        <h3> {{ tipo.monto }}</h3>        
-    {% endfor %}        
-{% endblock contenido %}
+{% block content %}
+    <div>
+        <a href="{% url 'Tratamiento:lista_pacientes' %}">Tu lista de pacientes aquí</a>
+    </div>
+{% endblock content %}
