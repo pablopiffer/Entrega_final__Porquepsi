@@ -5,7 +5,8 @@
 {% endblock title %}
 
 {% block content %}
-    <div>
-        <a href="{% url 'Tratamiento:lista_pacientes' %}">Tu lista de pacientes aquí</a>
+    <div class="links-container">
+        <a href="{% url 'Tratamiento:lista_pacientes' %}" class="btn btn-primary">Ver lista de pacientes</a>
+        <a href="{% url 'Tratamiento:paciente_form' %}" class="btn btn-success">Agregar nuevo paciente</a>
     </div>
 {% endblock content %}

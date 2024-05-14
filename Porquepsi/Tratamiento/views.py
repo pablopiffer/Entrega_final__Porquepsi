@@ -11,11 +11,10 @@ def index(request):
 def lista_pacientes(request):
     busqueda = request.GET.get("busqueda", None)
     if busqueda:
-        print(busqueda)
         consulta = Paciente.objects.filter(nombre__icontains=busqueda)
     else:
         consulta = Paciente.objects.all()
-    contexto = {"Paciente": consulta}
+    contexto = {"paciente": consulta}  
     return render(request, "Tratamiento/lista_pacientes.html", contexto)
 
 def paciente_create(request):
