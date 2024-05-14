@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% block title %}
+    Pacientes | Pacientes Registrados
+{% endblock title %}
+{% block body_title %}
+    Pacientes Registrados: Detalle
+{% endblock body_title %}
+{% block content %}
+    <ul>
+        <li>Nombre: {{ Paciente.nombre }}</li>
+        <li>Institución: {{ Paciente.institucion }}</li>
+    </ul>
+    <div>
+        <a href="{% url 'Tratamiento:lista_pacientes' %}">Volver</a>
+    </div>
+{% endblock content %}
