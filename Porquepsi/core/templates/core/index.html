@@ -1,11 +1,45 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
-{% block titulo %}
-    <h1>Página Inicial</h1>
-{% endblock titulo %}
+{% block title %}
+    Porque Psi 
+{% endblock title %}
 
-{% block contenido %}
-    <div>
-        <a href="{% url 'Tratamiento:index' %}">Ir a Tratamiento</a>
+{% block body_title %}
+    Inicio
+{% endblock body_title %}
+
+{% block content %}
+
+    <!-- Page Content-->
+    <div class="container px-4 px-lg-5">
+        <!-- Heading Row-->
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0"
+                    src="{% static 'core/img/cerebro.webp' %}" alt="..." /></div>
+            <div class="col-lg-5">
+                <h1 class="font-weight-light">Porque Psi</h1>
+                <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it,
+                    but it makes a great use of the standard Bootstrap core components. Feel free to use this template
+                    for any project you want!</p>
+                <a class="btn btn-primary" href="https://wa.me/541162414032" target="_blank">Whatsapp</a>
+            </div>
+        </div>
+        <!-- Call to Action-->
+        <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card-body">
+                <p class="text-white m-0">This call to action card is a great place to showcase some important
+                    information or display a clever tagline!</p>
+            </div>
+        </div>
+        <!-- Content Row-->
+        <div class="row gx-4 gx-lg-5">
+            {% include 'core/components/card.html' with titulo="Tarjeta 1" texto="Promociones" %}
+            {% include 'core/components/card.html' with titulo="Tarjeta 2" texto="Texto" %}
+            {% include 'core/components/card.html' with titulo="Tarjeta 3"  %}
+            {% include 'core/components/card.html' with texto="Promociones" %}
+            {% include 'core/components/card.html' %}
+        </div>
     </div>
-{% endblock contenido %}
+    
+{% endblock content %}
