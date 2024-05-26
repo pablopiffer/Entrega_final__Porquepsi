@@ -1,15 +1,47 @@
 <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
-        <a class="navbar-brand" href="#!">Porque Psi</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand" href="#!">Porque Psi | Tu aliado tecnológico</a>
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'core:index' %}">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'Tratamiento:index' %}">Tratamiento</a></li>
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       aria-current="page"
+                       href="{% url 'core:index' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">Nosotros</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Tratamiento:index' %}">Tratamiento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Tratamiento:index' %}">Tratamiento2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-bg-info">{{ user.username }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{% url 'core:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-dark">Logout</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'core:login' %}">Login</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
