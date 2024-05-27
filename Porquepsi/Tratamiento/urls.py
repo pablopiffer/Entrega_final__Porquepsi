@@ -6,6 +6,7 @@ from Tratamiento.views import (
     PacienteDelete,
     PacienteDetail,
     PacienteUpdate,
+    EstadisticasView,
     index,
 
 )
@@ -27,4 +28,5 @@ urlpatterns += [
     path("Tratamiento/paciente_detalles/<int:pk>", PacienteDetail.as_view(), name="paciente_detalles"),
     path("paciente_update/<int:pk>", PacienteUpdate.as_view(), name="paciente_update"),
     path("Tratamiento/paciente_confirm_delete/<int:pk>", PacienteDelete.as_view(), name="paciente_confirm_delete"),
+    path('estadisticas/', EstadisticasView.as_view(), name='estadisticas'),
 ]

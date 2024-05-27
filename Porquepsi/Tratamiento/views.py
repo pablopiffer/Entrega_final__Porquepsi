@@ -1,6 +1,6 @@
 from typing import Any
 
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -10,12 +10,13 @@ from django.views.generic import (
     DetailView,
     ListView,
     UpdateView,
+    TemplateView,
 )
 
 from django.shortcuts import redirect, render
 
 from Tratamiento.forms import TratamientopacienteForm
-from .models import Paciente
+from .models import Paciente, TipoDeConsulta
 
 
 def index(request):
@@ -98,3 +99,20 @@ class PacienteUpdate(UpdateView):
 class PacienteDelete(DeleteView):
     model = Paciente
     success_url = reverse_lazy("Tratamiento:lista_pacientes")
+
+
+class EstadisticasView(TemplateView):
+    template_name = "tratamiento/estadisticas.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        total_consultas = TipoDeConsulta.objects.count()
+        consultas_por_tipo = TipoDeConsulta.objects.values('nombre').annotate(total=Count('id')).order_by('-total')
+        consultas_por_profesional = TipoDeConsulta.objects.values('profesional__nombre').annotate(total=Count('id')).order_by('-total')
+        consultas_por_paciente = TipoDeConsulta.objects.values('paciente__nombre').annotate(total=Count('id')).order_by('-total')
+        
+        context['total_consultas'] = total_consultas
+        context['consultas_por_tipo'] = consultas_por_tipo
+        context['consultas_por_profesional'] = consultas_por_profesional
+        context['consultas_por_paciente'] = consultas_por_paciente
+        return context

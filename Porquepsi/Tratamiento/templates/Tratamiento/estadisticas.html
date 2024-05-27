@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Estadísticas de Consultas
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2>Estadísticas de Consultas</h2>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <h5 class="card-title">Total de consultas: {{ total_consultas }}</h5>
+            </div>
+
+            <div class="mb-3">
+                <h5 class="card-title">Consultas por Tipo:</h5>
+                <ul class="list-group">
+                    {% for tipo in consultas_por_tipo %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ tipo.nombre }}
+                            <span class="badge bg-primary rounded-pill">{{ tipo.total }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="mb-3">
+                <h5 class="card-title">Consultas por Profesional:</h5>
+                <ul class="list-group">
+                    {% for profesional in consultas_por_profesional %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ profesional.profesional__nombre }}
+                            <span class="badge bg-success rounded-pill">{{ profesional.total }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="mb-3">
+                <h5 class="card-title">Consultas por Paciente:</h5>
+                <ul class="list-group">
+                    {% for paciente in consultas_por_paciente %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ paciente.paciente__nombre }}
+                            <span class="badge bg-info rounded-pill">{{ paciente.total }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
