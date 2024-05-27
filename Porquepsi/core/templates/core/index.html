@@ -35,16 +35,14 @@
         <!-- Call to Action-->
         <div class="card text-white bg-secondary my-5 py-4 text-center">
             <div class="card-body">
-                <p class="text-white m-0">Nuestras soluciones:</p>
+                <h2 class="text-white m-0">Nuestras soluciones</h2>
             </div>
         </div>
         <!-- Content Row-->
-        <div class="row gx-4 gx-lg-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {% include 'core/components/card.html' with titulo="Solución 1" texto="Solución 1" %}
             {% include 'core/components/card.html' with titulo="Solución 2" texto="Solución 2" %}
-            {% include 'core/components/card.html' with titulo="Solución 3"  %}
-            {% include 'core/components/card.html' with texto="Solución 4" %}
-            {% include 'core/components/card.html' %}
+            {% include 'core/components/card.html' with titulo="Solución 3" texto="Solución 3" %}
         </div>
     </div>
     

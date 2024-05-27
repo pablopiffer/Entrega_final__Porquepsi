@@ -1,13 +1,24 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-    Porque Psi
+    Porque Psi - Logout
 {% endblock title %}
 
 {% block body_title %}
-    Logout
 {% endblock body_title %}
 
 {% block content %}
-    <p class="fs-5">Has cerrado sesión</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card my-5">
+                <div class="card-body text-center">
+                    <p class="fs-5">Has cerrado sesión</p>
+                    <a href="{% url 'core:index' %}" class="btn btn-primary">Volver al inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
+
