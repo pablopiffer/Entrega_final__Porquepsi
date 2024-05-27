@@ -3,20 +3,32 @@ import datetime
 
 class Institucion(models.Model):
     nombre = models.CharField(max_length=255, unique=True)
+    direccion = models.CharField(max_length=255, null=True, blank=True)
+    telefono = models.CharField(max_length=20, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
 
     def __str__(self):
         return self.nombre
 
 class Profesional(models.Model):
     nombre = models.CharField(max_length=255)
+    especialidad = models.CharField(max_length=255, null=True, blank=True)
+    telefono = models.CharField(max_length=20, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    institucion = models.ForeignKey(Institucion, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.nombre
 
 class Paciente(models.Model):
     nombre = models.CharField(max_length=255)
-    profesional = models.ForeignKey(Profesional, on_delete=models.SET_NULL, null=True)
-    institucion = models.ForeignKey(Institucion, on_delete=models.SET_NULL, null=True)
+    fecha_nacimiento = models.DateField(null=True, blank=True)
+    direccion = models.CharField(max_length=255, null=True, blank=True)
+    telefono = models.CharField(max_length=20, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    profesional = models.ForeignKey(Profesional, on_delete=models.SET_NULL, null=True, blank=True)
+    institucion = models.ForeignKey(Institucion, on_delete=models.SET_NULL, null=True, blank=True)
+    numero_historia_clinica = models.CharField(max_length=100, unique=True, null=True, blank=True)
 
     def __str__(self):
         return self.nombre
@@ -26,9 +38,13 @@ class TipoDeConsulta(models.Model):
     monto = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     pagado = models.BooleanField(default=False)
     fecha = models.DateField(default=datetime.date.today)
-    profesional = models.ForeignKey('Profesional', on_delete=models.CASCADE)
+    profesional = models.ForeignKey(Profesional, on_delete=models.CASCADE)
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, null=True, blank=True)
+    descripcion = models.TextField(null=True, blank=True)
+    duracion = models.DurationField(null=True, blank=True)
 
     def __str__(self):
         return self.nombre
+
 
 

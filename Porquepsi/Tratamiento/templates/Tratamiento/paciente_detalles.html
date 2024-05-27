@@ -8,7 +8,12 @@
 {% block content %}
     <ul>
         <li>Nombre: {{ Paciente.nombre }}</li>
+        <li>Teléfono: {{ Paciente.telefono }}</li>
+        <li>email: {{ Paciente.email }}</li>
+        <li>Dirección: {{ Paciente.direccion }}</li>
+        <li>Profesional: {{ Paciente.profesional }}</li>
         <li>Institución: {{ Paciente.institucion }}</li>
+        <li>Número de historia clínica: {{ Paciente.numero_historia_clinica }}</li>
     </ul>
     <div>
         <a href="{% url 'Tratamiento:lista_pacientes' %}">Volver</a>
