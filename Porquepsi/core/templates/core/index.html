@@ -12,6 +12,16 @@
 
     <!-- Page Content-->
     <div class="container px-4 px-lg-5">
+        
+        {% if user.is_authenticated %}
+            <p class="text-info ">¡Bienvenido {{ user.username | title }}!</p>
+        {% endif %}
+        
+        <!-- Mensaje para cuando un usuario sea creado -->
+        {% if mensaje %}
+            <p class="text-info ">{{ mensaje }} ¡Bienvenido!</p>
+        {% endif %}
+
         <!-- Heading Row-->
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
             <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0"
