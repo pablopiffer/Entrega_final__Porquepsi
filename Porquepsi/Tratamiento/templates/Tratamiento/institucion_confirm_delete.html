@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% block title %}
+Instituciones | Instituciones Registradas
+{% endblock title %}
+{% block body_title %}
+Instituciones Registradas: Eliminar
+{% endblock body_title %}
+{% block content %}
+
+    <p class="fs-5  fst-italic ">¿Confirma eliminar "{{ object.nombre }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+    <a href="{% url 'Tratamiento:index' %}">Volver al menú de Tratamiento</a>
+{% endblock content %}
+

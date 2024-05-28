@@ -6,6 +6,11 @@ from Tratamiento.views import (
     PacienteDelete,
     PacienteDetail,
     PacienteUpdate,
+    InstitucionList,
+    InstitucionCreate,
+    InstitucionDelete,
+    InstitucionDetail,
+    InstitucionUpdate,
     EstadisticasView,
     index,
 
@@ -29,4 +34,9 @@ urlpatterns += [
     path("paciente_update/<int:pk>", PacienteUpdate.as_view(), name="paciente_update"),
     path("Tratamiento/paciente_confirm_delete/<int:pk>", PacienteDelete.as_view(), name="paciente_confirm_delete"),
     path('estadisticas/', EstadisticasView.as_view(), name='estadisticas'),
+    path("Tratamiento/lista_institucion", InstitucionList.as_view(), name="lista_institucion"),
+    path("Tratamiento/institucion_form/", InstitucionCreate.as_view(), name="institucion_form"),
+    path("Tratamiento/institucion_detalles/<int:pk>", InstitucionDetail.as_view(), name="institucion_detalles"),
+    path("institucion_update/<int:pk>", InstitucionUpdate.as_view(), name="institucion_update"),
+    path("Tratamiento/institucion_confirm_delete/<int:pk>", InstitucionDelete.as_view(), name="institucion_confirm_delete"),
 ]

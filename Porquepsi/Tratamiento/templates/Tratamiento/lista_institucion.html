@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% block title %}
+    Tus instituciones    
+{% endblock title %}
+{% block body_title %}
+    Tu listado de instituciones
+{% endblock body_title %}
+{% block content %}
+    <div class="pb-lg-3">
+        <form action="{% url 'Tratamiento:lista_institucion' %}"" method="get">
+            <input type="text" name="busqueda" placeholder="Buscar...">
+        </form>
+    </div>
+
+    <ul>
+        {% for ins in institucion %}
+            <li>
+                {{ ins.nombre }}
+                <a href="{% url 'Tratamiento:institucion_detalles' ins.id %}">Detalle</a>
+                <a href="{% url 'Tratamiento:institucion_form' %}">Cambiar</a>
+                <a href="{% url 'Tratamiento:institucion_confirm_delete' ins.id %}">Borrar</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

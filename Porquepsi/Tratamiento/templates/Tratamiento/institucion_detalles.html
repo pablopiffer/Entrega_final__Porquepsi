@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% block title %}
+    Instituciones | Instituciones Registradas
+{% endblock title %}
+{% block body_title %}
+Instituciones Registradas: Detalle
+{% endblock body_title %}
+{% block content %}
+    <ul>
+        <li>Nombre: {{ Institucion.nombre }}</li>
+        <li>Dirección: {{ Institucion.direccion }}</li>
+        <li>Teléfono: {{ Institucion.telefono }}</li>
+        <li>email: {{ Institucion.email }}</li>
+    </ul>
+    <div>
+        <a href="{% url 'Tratamiento:lista_institucion' %}">Volver</a>
+    </div>
+{% endblock content %}

@@ -5,8 +5,10 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="links-container">
-        <a href="{% url 'Tratamiento:lista_pacientes' %}" class="btn btn-primary">Ver lista de pacientes</a>
-        <a href="{% url 'Tratamiento:paciente_form' %}" class="btn btn-success">Agregar nuevo paciente</a>
-    </div>
+<div class="text-center mt-4">
+    <a href="{% url 'Tratamiento:lista_pacientes' %}" class="btn btn-lg btn-primary mx-2">Ver lista de pacientes</a>
+    <a href="{% url 'Tratamiento:paciente_form' %}" class="btn btn-lg btn-success mx-2">Agregar nuevo paciente</a>
+    <a href="{% url 'Tratamiento:lista_institucion' %}" class="btn btn-lg btn-info mx-2">Ver lista de instituciones</a>
+    <a href="{% url 'Tratamiento:institucion_form' %}" class="btn btn-lg btn-warning mx-2">Agregar nueva institución</a>
+</div>
 {% endblock content %}

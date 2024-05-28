@@ -15,8 +15,8 @@ from django.views.generic import (
 
 from django.shortcuts import redirect, render
 
-from Tratamiento.forms import TratamientopacienteForm
-from .models import Paciente, TipoDeConsulta
+from Tratamiento.forms import TratamientopacienteForm, InstitucionForm
+from .models import Paciente, TipoDeConsulta, Institucion
 
 
 def index(request):
@@ -116,3 +116,46 @@ class EstadisticasView(TemplateView):
         context['consultas_por_profesional'] = consultas_por_profesional
         context['consultas_por_paciente'] = consultas_por_paciente
         return context
+
+
+
+
+    #INSTITUCION
+
+
+
+
+class InstitucionList(ListView):
+    model = Institucion
+    context_object_name = "institucion"
+    template_name = "Tratamiento/lista_institucion.html"
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        busqueda = self.request.GET.get("busqueda")
+        if busqueda:
+            queryset = queryset.filter(
+                nombre__icontains=busqueda)
+        return queryset
+
+
+class InstitucionCreate(CreateView):
+    model = Institucion
+    form_class = InstitucionForm
+    success_url = reverse_lazy("Tratamiento:lista_institucion")
+
+
+class InstitucionDetail(DetailView):
+    model = Institucion
+    template_name = "Tratamiento/institucion_detalles.html"
+
+
+class InstitucionUpdate(UpdateView):
+    model = Institucion
+    form_class = InstitucionForm
+    success_url = reverse_lazy("Tratamiento:lista_institucion")
+
+
+class InstitucionDelete(DeleteView):
+    model = Institucion
+    success_url = reverse_lazy("Tratamiento:lista_institucion")
