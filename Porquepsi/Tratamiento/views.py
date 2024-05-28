@@ -1,5 +1,6 @@
 from typing import Any
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q, Count
 from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render
@@ -102,7 +103,7 @@ class PacienteDelete(DeleteView):
 
 
 class EstadisticasView(TemplateView):
-    template_name = "tratamiento/estadisticas.html"
+    template_name = "Tratamiento/estadisticas.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

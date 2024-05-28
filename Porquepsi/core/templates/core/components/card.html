@@ -1,11 +1,20 @@
-<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body">
-            <h2 class="card-title">{{ titulo }}</h2>
-            <p class="card-text">{{ texto }}</p>
-        </div>
-        <div class="card-footer">
-            <a class="btn btn-primary btn-sm" href="{% if url %}{% url url %}{% else %}#!{% endif %}">More Info</a>
-        </div>
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">{{ titulo }}</h5>
+        <p class="card-text">{{ texto }}</p>
+        {% if colapsable %}
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse{{ titulo|slugify }}" role="button" aria-expanded="false" aria-controls="collapse{{ titulo|slugify }}">
+                More info
+            </a>
+        {% endif %}
+        <a href="{{ url }}" class="btn btn-info">Acceder</a>
+        
+        {% if colapsable %}
+            <div class="collapse mt-3" id="collapse{{ titulo|slugify }}">
+                <div class="card card-body">
+                    {{ colapsable_texto }}
+                </div>
+            </div>
+        {% endif %}
     </div>
 </div>

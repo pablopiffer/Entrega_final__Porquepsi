@@ -40,9 +40,12 @@
         </div>
         <!-- Content Row-->
         <div class="row gx-4 gx-lg-5">
-            {% include 'core/components/card.html' with titulo="Estadísticas de Consultas" texto="Accedé a las estadísticas de consultas" url=estadisticas %}
-            {% include 'core/components/card.html' with titulo="Solución 2" texto="Solución 2" %}
-            {% include 'core/components/card.html' with titulo="Solución 3" texto="Solución 3" %}
+            {% with estadisticas_url='Tratamiento:estadisticas' %}
+                {% include 'core/components/card.html' with titulo='Estadísticas de Consultas' texto='Accede a estadísticas detalladas sobre tu práctica profesional.' colapsable=True colapsable_texto='Una sección donde los profesionales pueden ver estadísticas sobre su práctica, como la frecuencia de ciertos tipos de consultas, la demografía de los pacientes, etc. Esto podría ayudarles a comprender mejor su práctica y tomar decisiones informadas.' url=estadisticas_url %}
+            {% endwith %}
+            {% include 'core/components/card.html' with titulo='Solución 1' texto='Descripción breve de la solución 1' url='ruta_solucion_1' %}
+            {% include 'core/components/card.html' with titulo='Solución 2' texto='Descripción breve de la solución 2' url='ruta_solucion_2' %}
+            {% include 'core/components/card.html' with titulo='Solución 4' texto='Descripción breve de la solución 4' url='ruta_solucion_4' %}
         </div>
     </div>
     
