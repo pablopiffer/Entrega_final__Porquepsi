@@ -33,7 +33,7 @@ def index(request):
     contexto = {"paciente": consulta}  
     return render(request, "Tratamiento/lista_pacientes.html", contexto) """
 
-class PacienteList(ListView):
+class PacienteList(LoginRequiredMixin, ListView):
     model = Paciente
     context_object_name = "paciente"
     template_name = "Tratamiento/lista_pacientes.html"
@@ -57,7 +57,7 @@ class PacienteList(ListView):
 #         form = TratamientopacienteForm()
 #     return render(request, "Tratamiento/paciente_form.html", {"form": form})
 
-class PacienteCreate(CreateView):
+class PacienteCreate(LoginRequiredMixin, CreateView):
     model = Paciente
     form_class = TratamientopacienteForm
     success_url = reverse_lazy("Tratamiento:lista_pacientes")
@@ -68,7 +68,7 @@ class PacienteCreate(CreateView):
 #     contexto = {"Paciente": consulta}
 #     return render(request, "Tratamiento/paciente_detalles.html", contexto)
 
-class PacienteDetail(DetailView):
+class PacienteDetail(LoginRequiredMixin, DetailView):
     model = Paciente
     template_name = "Tratamiento/paciente_detalles.html"
 
@@ -84,7 +84,7 @@ class PacienteDetail(DetailView):
 #         form = TratamientopacienteForm(instance=consulta)
 #     return render(request, "Tratamiento/paciente_form.html", {"form": form})
 
-class PacienteUpdate(UpdateView):
+class PacienteUpdate(LoginRequiredMixin, UpdateView):
     model = Paciente
     form_class = TratamientopacienteForm
     success_url = reverse_lazy("Tratamiento:lista_pacientes")
@@ -97,12 +97,12 @@ class PacienteUpdate(UpdateView):
 #         return redirect("Tratamiento:lista_pacientes")
 #     return render(request, "Tratamiento/paciente_confirm_delete.html", {"object": consulta})
 
-class PacienteDelete(DeleteView):
+class PacienteDelete(LoginRequiredMixin, DeleteView):
     model = Paciente
     success_url = reverse_lazy("Tratamiento:lista_pacientes")
 
 
-class EstadisticasView(TemplateView):
+class EstadisticasView(LoginRequiredMixin, TemplateView):
     template_name = "Tratamiento/estadisticas.html"
 
     def get_context_data(self, **kwargs):
@@ -126,7 +126,7 @@ class EstadisticasView(TemplateView):
 
 
 
-class InstitucionList(ListView):
+class InstitucionList(LoginRequiredMixin, ListView):
     model = Institucion
     context_object_name = "institucion"
     template_name = "Tratamiento/lista_institucion.html"
@@ -140,23 +140,23 @@ class InstitucionList(ListView):
         return queryset
 
 
-class InstitucionCreate(CreateView):
+class InstitucionCreate(LoginRequiredMixin, CreateView):
     model = Institucion
     form_class = InstitucionForm
     success_url = reverse_lazy("Tratamiento:lista_institucion")
 
 
-class InstitucionDetail(DetailView):
+class InstitucionDetail(LoginRequiredMixin, DetailView):
     model = Institucion
     template_name = "Tratamiento/institucion_detalles.html"
 
 
-class InstitucionUpdate(UpdateView):
+class InstitucionUpdate(LoginRequiredMixin, UpdateView):
     model = Institucion
     form_class = InstitucionForm
     success_url = reverse_lazy("Tratamiento:lista_institucion")
 
 
-class InstitucionDelete(DeleteView):
+class InstitucionDelete(LoginRequiredMixin, DeleteView):
     model = Institucion
     success_url = reverse_lazy("Tratamiento:lista_institucion")
