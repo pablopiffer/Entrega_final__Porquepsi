@@ -1,4 +1,4 @@
-#from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 from django.contrib.auth.views import LogoutView
 
@@ -15,4 +15,4 @@ urlpatterns = [
     path("register/", register, name = "register")
 ]
 
-#urlpatterns += staticfiles_urlpatterns()
+urlpatterns += staticfiles_urlpatterns()
