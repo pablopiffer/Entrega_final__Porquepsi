@@ -12,6 +12,8 @@ from Tratamiento.views import (
     InstitucionDetail,
     InstitucionUpdate,
     EstadisticasView,
+    NotaDeSesionCreate,
+    ObjetivoDeTratamientoCreate,
     index,
 
 )
@@ -39,4 +41,6 @@ urlpatterns += [
     path("Tratamiento/institucion_detalles/<int:pk>", InstitucionDetail.as_view(), name="institucion_detalles"),
     path("institucion_update/<int:pk>", InstitucionUpdate.as_view(), name="institucion_update"),
     path("Tratamiento/institucion_confirm_delete/<int:pk>", InstitucionDelete.as_view(), name="institucion_confirm_delete"),
+    path("Tratamiento/nota_de_sesion_form/", NotaDeSesionCreate.as_view(), name="nota_de_sesion_form"),
+    path("Tratamiento/objetivo_de_tratamiento_form/", ObjetivoDeTratamientoCreate.as_view(), name="objetivo_de_tratamiento_form"),
 ]

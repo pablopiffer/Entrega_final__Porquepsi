@@ -1,5 +1,4 @@
 from typing import Any
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q, Count
 from django.db.models.query import QuerySet
@@ -14,8 +13,8 @@ from django.views.generic import (
     TemplateView,
 )
 
-from Tratamiento.forms import TratamientopacienteForm, InstitucionForm
-from .models import Paciente, TipoDeConsulta, Institucion
+from Tratamiento.forms import TratamientopacienteForm, InstitucionForm, NotaDeSesionForm, ObjetivoDeTratamientoForm
+from .models import Paciente, TipoDeConsulta, Institucion, NotaDeSesion, ObjetivoDeTratamiento
 from django.db import models
 
 
@@ -160,3 +159,15 @@ class InstitucionUpdate(LoginRequiredMixin, UpdateView):
 class InstitucionDelete(LoginRequiredMixin, DeleteView):
     model = Institucion
     success_url = reverse_lazy("Tratamiento:lista_institucion")
+
+class NotaDeSesionCreate(CreateView):
+    model = NotaDeSesion
+    form_class = NotaDeSesionForm
+    template_name = 'nota_de_sesion_form.html'
+    success_url = '/'  # Redirigir a la página que desees después de crear la nota
+
+class ObjetivoDeTratamientoCreate(CreateView):
+    model = ObjetivoDeTratamiento
+    form_class = ObjetivoDeTratamientoForm
+    template_name = 'objetivo_de_tratamiento_form.html'
+    success_url = '/'  # Redirigir a la página que desees después de crear el objetivo

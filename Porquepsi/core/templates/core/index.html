@@ -38,15 +38,30 @@
                 <h2 class="text-white m-0">Nuestras soluciones</h2>
             </div>
         </div>
-        <!-- Content Row-->
-        <div class="row gx-4 gx-lg-5">
-            {% with estadisticas_url='Tratamiento:estadisticas' %}
-                {% include 'core/components/card.html' with titulo='Estadísticas de Consultas' texto='Accede a estadísticas detalladas sobre tu práctica profesional.' colapsable=True colapsable_texto='Una sección donde los profesionales pueden ver estadísticas sobre su práctica, como la frecuencia de ciertos tipos de consultas, la demografía de los pacientes, etc. Esto podría ayudarles a comprender mejor su práctica y tomar decisiones informadas.' url=estadisticas_url %}
-            {% endwith %}
-            {% with recordatorios_url='notificaciones:lista_recordatorios' %}
-                {% include 'core/components/card.html' with titulo='Recordatorios y Notificaciones' texto='Gestiona tus recordatorios y notificaciones para citas y seguimientos.' colapsable=True colapsable_texto='Integra un sistema de recordatorios y notificaciones para que los profesionales puedan recordar citas pendientes, fechas de seguimiento, etc. Esto podría hacerse mediante correo electrónico, mensajes de texto o notificaciones dentro de la aplicación.' url=recordatorios_url %}
-            {% endwith %}
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                {% with estadisticas_url='Tratamiento:estadisticas' %}
+                    {% include 'core/components/card.html' with titulo='Estadísticas de Consultas' texto='Accede a estadísticas detalladas sobre tu práctica profesional.' colapsable=True colapsable_texto='Una sección donde los profesionales pueden ver estadísticas sobre su práctica, como la frecuencia de ciertos tipos de consultas, la demografía de los pacientes, etc. Esto podría ayudarles a comprender mejor su práctica y tomar decisiones informadas.' url=estadisticas_url %}
+                {% endwith %}
+            </div>
+            <div class="col-lg-6 mb-4">
+                {% with recordatorios_url='notificaciones:lista_recordatorios' %}
+                    {% include 'core/components/card.html' with titulo='Recordatorios y Notificaciones' texto='Gestiona tus recordatorios y notificaciones para citas y seguimientos.' colapsable=True colapsable_texto='Integra un sistema de recordatorios y notificaciones para que los profesionales puedan recordar citas pendientes, fechas de seguimiento, etc. Esto podría hacerse mediante correo electrónico, mensajes de texto o notificaciones dentro de la aplicación.' url=recordatorios_url %}
+                {% endwith %}
+            </div>
         </div>
-    </div>
-    
-{% endblock content %}
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                {% with nota_sesion_url='Tratamiento:nota_de_sesion_form' %}
+                    {% include 'core/components/card.html' with titulo='Nota de Sesión' texto='Registra notas detalladas de las sesiones con tus pacientes.' colapsable=True colapsable_texto='Una sección donde puedes registrar notas detalladas sobre las sesiones con tus pacientes. Esto te ayudará a llevar un registro claro de los detalles importantes discutidos durante las sesiones.' url=nota_sesion_url %}
+                {% endwith %}
+            </div>
+            <div class="col-lg-6 mb-4">
+                {% with objetivo_tratamiento_url='Tratamiento:objetivo_de_tratamiento_form' %}
+                    {% include 'core/components/card.html' with titulo='Objetivo de Tratamiento' texto='Establece objetivos claros y medibles para tus tratamientos.' colapsable=True colapsable_texto='Una sección donde puedes establecer objetivos claros y medibles para tus tratamientos. Esto te ayudará a tener un enfoque claro en tus intervenciones y a medir el progreso de tus pacientes.' url=objetivo_tratamiento_url %}
+                {% endwith %}
+            </div>
+        </div>
+           
+    {% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Agregar Objetivo de Tratamiento{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Agregar Objetivo de Tratamiento</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar Objetivo de Tratamiento</button>
+    </form>
+</div>
+{% endblock %}

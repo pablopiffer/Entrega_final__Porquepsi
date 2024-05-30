@@ -49,6 +49,24 @@ class TipoDeConsulta(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+from .models import Paciente, Profesional
+
+class NotaDeSesion(models.Model):
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
+    contenido = models.TextField()
+    fecha = models.DateField()
+
+    def __str__(self):
+        return f"Nota de sesión para {self.paciente} - {self.fecha}"
+
+class ObjetivoDeTratamiento(models.Model):
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
+    descripcion = models.TextField()
+    fecha = models.DateField()
+
+    def __str__(self):
+        return f"Objetivo de tratamiento para {self.paciente}"
 
 
 

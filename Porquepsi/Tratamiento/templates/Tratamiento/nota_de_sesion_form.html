@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Agregar Nota de Sesión{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Agregar Nota de Sesión</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar Nota de Sesión</button>
+    </form>
+</div>
+{% endblock %}
