@@ -164,7 +164,7 @@ class InstitucionDelete(LoginRequiredMixin, DeleteView):
 class NotaDeSesionCreate(LoginRequiredMixin, CreateView):
     model = NotaDeSesion
     form_class = NotaDeSesionForm
-    template_name = "nota_de_sesion_form.html"
+    template_name = "Tratamiento/nota_de_sesion_form.html"
     success_url = reverse_lazy("Tratamiento:lista_pacientes")
 
     def form_valid(self, form):
@@ -176,7 +176,7 @@ class NotaDeSesionCreate(LoginRequiredMixin, CreateView):
 class ObjetivoDeTratamientoCreate(LoginRequiredMixin, CreateView):
     model = ObjetivoDeTratamiento
     form_class = ObjetivoDeTratamientoForm
-    template_name = "objetivo_de_tratamiento_form.html"
+    template_name = "Tratamiento/objetivo_de_tratamiento_form.html"
     success_url = reverse_lazy("Tratamiento:lista_pacientes")
 
     def form_valid(self, form):
@@ -190,7 +190,7 @@ class ObjetivoDeTratamientoCreate(LoginRequiredMixin, CreateView):
             else:
                 # Si el usuario autenticado no tiene un perfil de profesional asociado,
                 # redirigirlo a una página de error o mostrar un mensaje apropiado.
-                return redirect('pagina_de_error')
+                return redirect("Tratamiento:lista_pacientes")
         else:
             # Si el usuario no está autenticado, redirigirlo a la página de inicio de sesión
             return redirect('login')
