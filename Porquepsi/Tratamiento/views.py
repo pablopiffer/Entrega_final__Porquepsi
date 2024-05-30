@@ -16,6 +16,7 @@ from django.views.generic import (
 from Tratamiento.forms import TratamientopacienteForm, InstitucionForm, NotaDeSesionForm, ObjetivoDeTratamientoForm
 from .models import Paciente, TipoDeConsulta, Institucion, NotaDeSesion, ObjetivoDeTratamiento
 from django.db import models
+from .mixins import ProfesionalRequiredMixin
 
 
 def index(request):
@@ -160,14 +161,36 @@ class InstitucionDelete(LoginRequiredMixin, DeleteView):
     model = Institucion
     success_url = reverse_lazy("Tratamiento:lista_institucion")
 
-class NotaDeSesionCreate(CreateView):
+class NotaDeSesionCreate(LoginRequiredMixin, CreateView):
     model = NotaDeSesion
     form_class = NotaDeSesionForm
-    template_name = 'nota_de_sesion_form.html'
-    success_url = '/'  # Redirigir a la página que desees después de crear la nota
+    template_name = "nota_de_sesion_form.html"
+    success_url = reverse_lazy("Tratamiento:lista_pacientes")
 
-class ObjetivoDeTratamientoCreate(CreateView):
+    def form_valid(self, form):
+        # Asignar el usuario actual al campo Profesional.user antes de guardar el formulario
+        form.instance.profesional.user = self.request.user
+        #form.instance.profesional = self.request.user.profesional
+        return super().form_valid(form)
+
+class ObjetivoDeTratamientoCreate(LoginRequiredMixin, CreateView):
     model = ObjetivoDeTratamiento
     form_class = ObjetivoDeTratamientoForm
-    template_name = 'objetivo_de_tratamiento_form.html'
-    success_url = '/'  # Redirigir a la página que desees después de crear el objetivo
+    template_name = "objetivo_de_tratamiento_form.html"
+    success_url = reverse_lazy("Tratamiento:lista_pacientes")
+
+    def form_valid(self, form):
+        # Verificar si el usuario actual está autenticado
+        if self.request.user.is_authenticated:
+            # Verificar si el usuario tiene un perfil de profesional asociado
+            if hasattr(self.request.user, 'profesional'):
+                # Asignar el profesional asociado al objetivo de tratamiento
+                form.instance.profesional = self.request.user
+                return super().form_valid(form)
+            else:
+                # Si el usuario autenticado no tiene un perfil de profesional asociado,
+                # redirigirlo a una página de error o mostrar un mensaje apropiado.
+                return redirect('pagina_de_error')
+        else:
+            # Si el usuario no está autenticado, redirigirlo a la página de inicio de sesión
+            return redirect('login')
