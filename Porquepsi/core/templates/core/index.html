@@ -43,9 +43,9 @@
             {% with estadisticas_url='Tratamiento:estadisticas' %}
                 {% include 'core/components/card.html' with titulo='Estadísticas de Consultas' texto='Accede a estadísticas detalladas sobre tu práctica profesional.' colapsable=True colapsable_texto='Una sección donde los profesionales pueden ver estadísticas sobre su práctica, como la frecuencia de ciertos tipos de consultas, la demografía de los pacientes, etc. Esto podría ayudarles a comprender mejor su práctica y tomar decisiones informadas.' url=estadisticas_url %}
             {% endwith %}
-            {% include 'core/components/card.html' with titulo='Solución 1' texto='Descripción breve de la solución 1' url='ruta_solucion_1' %}
-            {% include 'core/components/card.html' with titulo='Solución 2' texto='Descripción breve de la solución 2' url='ruta_solucion_2' %}
-            {% include 'core/components/card.html' with titulo='Solución 4' texto='Descripción breve de la solución 4' url='ruta_solucion_4' %}
+            {% with recordatorios_url='notificaciones:lista_recordatorios' %}
+                {% include 'core/components/card.html' with titulo='Recordatorios y Notificaciones' texto='Gestiona tus recordatorios y notificaciones para citas y seguimientos.' colapsable=True colapsable_texto='Integra un sistema de recordatorios y notificaciones para que los profesionales puedan recordar citas pendientes, fechas de seguimiento, etc. Esto podría hacerse mediante correo electrónico, mensajes de texto o notificaciones dentro de la aplicación.' url=recordatorios_url %}
+            {% endwith %}
         </div>
     </div>
     

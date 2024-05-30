@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+  <h2>Lista de Recordatorios</h2>
+  <ul>
+    {% for recordatorio in recordatorios %}
+      <li>{{ recordatorio.fecha_recordatorio }}: {{ recordatorio.mensaje }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

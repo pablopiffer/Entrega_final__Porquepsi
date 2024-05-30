@@ -14,10 +14,9 @@ from django.views.generic import (
     TemplateView,
 )
 
-from django.shortcuts import redirect, render
-
 from Tratamiento.forms import TratamientopacienteForm, InstitucionForm
 from .models import Paciente, TipoDeConsulta, Institucion
+from django.db import models
 
 
 def index(request):
@@ -108,15 +107,16 @@ class EstadisticasView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         total_consultas = TipoDeConsulta.objects.count()
-        consultas_por_tipo = TipoDeConsulta.objects.values('nombre').annotate(total=Count('id')).order_by('-total')
-        consultas_por_profesional = TipoDeConsulta.objects.values('profesional__nombre').annotate(total=Count('id')).order_by('-total')
-        consultas_por_paciente = TipoDeConsulta.objects.values('paciente__nombre').annotate(total=Count('id')).order_by('-total')
+        consultas_por_tipo = TipoDeConsulta.objects.values('nombre').annotate(total=models.Count('id')).order_by('-total')
+        consultas_por_profesional = TipoDeConsulta.objects.values('profesional__user__username').annotate(total=models.Count('id')).order_by('-total')
+        consultas_por_paciente = TipoDeConsulta.objects.values('paciente__nombre').annotate(total=models.Count('id')).order_by('-total')
         
         context['total_consultas'] = total_consultas
         context['consultas_por_tipo'] = consultas_por_tipo
         context['consultas_por_profesional'] = consultas_por_profesional
         context['consultas_por_paciente'] = consultas_por_paciente
         return context
+
 
 
 
