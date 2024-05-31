@@ -15,11 +15,14 @@ Porque Psi nace como una necesidad personal. Soy psicólogo clínico hace 10 añ
 
 
 ## Explicación breve técnica:
-Porque Psi tiene, para esta tercera pre-entrega, una sola APP llamada Tratamiento, donde se puede registrar al paciente, a la institución, al profesional. Y tiene Core como la Home a desarrollar para el proyecto final. 
+Porque Psi tiene las APPs:
+Tratamiento, donde se puede registrar al paciente, a la institución, al profesional. 
+Notificaciones, donde gestiona las notificaciones y avisos a los profesionales.
+Y tiene Core como carpeta config. 
 
 ## Mejoras futuras
 
-Preveo agregar 2 apps más, así como funcionalidades estilo calendario, agendas, algún foro de discusión, etc.
+Preveo agregar 2 funcionalidades más: foro de discusión y repositorio de documentación para obras sociales y prepagas.
 
 ## Problemas conocidos
 
