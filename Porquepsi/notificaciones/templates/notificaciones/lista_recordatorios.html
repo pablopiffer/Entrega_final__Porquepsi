@@ -2,9 +2,11 @@
 
 {% block content %}
   <h2>Lista de Notificaciones</h2>
+  <a href="{% url 'notificaciones:crear_recordatorio' %}">Crear recordatorio para notificacion</a>
   <ul>
     {% for notificacion in notificaciones %}
       <li>{{ notificacion.creado_en }}: {{ notificacion.mensaje }} {% if notificacion.leido %}(Leído){% else %}(No leído){% endif %}</li>
     {% endfor %}
   </ul>
+  <a href="{% url 'Tratamiento:index' %}">Volver al menú de Tratamiento</a>
 {% endblock %}
