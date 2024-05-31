@@ -7,7 +7,8 @@ from .models import NotaDeSesion, ObjetivoDeTratamiento
 class TratamientopacienteForm(forms.ModelForm):
     class Meta:
         model = models.Paciente
-        fields = ["nombre", "institucion"]
+        fields = "__all__"           
+                    
 
 
 class InstitucionForm(forms.ModelForm):

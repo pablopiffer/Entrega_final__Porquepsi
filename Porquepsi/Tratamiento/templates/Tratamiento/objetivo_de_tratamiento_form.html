@@ -4,11 +4,16 @@
 {% endblock title %}
 {% block content %}
 <div class="container">
-    <h1 class="mt-4">Agregar Objetivo de Tratamiento</h1>
+    <h1 class="mt-4">Agregar objetivo de tratamiento</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Guardar Objetivo de Tratamiento</button>
+        <button type="submit" class="btn btn-primary">Guardar objetivo</button>
     </form>
 </div>
+
+
+
+
+
 {% endblock %}

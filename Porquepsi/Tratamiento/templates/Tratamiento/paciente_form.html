@@ -3,7 +3,7 @@
     Registro de Pacientes
 {% endblock title %}
 {% block body_title %}
-    {% if form.instance.pk %}
+    {% if form.instance.id %}
         Registro de Pacientes: Edición
     {% else %}
         Registro de Pacientes: Creación
@@ -17,5 +17,6 @@
         </table>
         <button type="submit">Guardar</button>
     </form>
+    <a href="{% url 'Tratamiento:index' %}">Volver al menú de Tratamiento</a>
 {% endblock content %}
 

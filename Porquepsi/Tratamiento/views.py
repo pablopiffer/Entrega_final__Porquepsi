@@ -41,9 +41,7 @@ class PacienteList(LoginRequiredMixin, ListView):
         queryset = super().get_queryset()
         busqueda = self.request.GET.get("busqueda")
         if busqueda:
-            queryset = queryset.filter(
-                Q(nombre__icontains=busqueda) | Q(profesional__nombre__icontains=busqueda)
-            )
+            queryset = queryset.filter(nombre__icontains=busqueda)
         return queryset
 
 # def paciente_create(request):
@@ -86,6 +84,7 @@ class PacienteDetail(LoginRequiredMixin, DetailView):
 class PacienteUpdate(LoginRequiredMixin, UpdateView):
     model = Paciente
     form_class = TratamientopacienteForm
+    template_name = "paciente_form.html"
     success_url = reverse_lazy("Tratamiento:lista_pacientes")
 
 

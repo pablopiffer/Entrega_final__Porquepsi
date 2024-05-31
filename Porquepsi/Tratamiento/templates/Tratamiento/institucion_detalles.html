@@ -7,10 +7,10 @@ Instituciones Registradas: Detalle
 {% endblock body_title %}
 {% block content %}
     <ul>
-        <li>Nombre: {{ Institucion.nombre }}</li>
-        <li>Dirección: {{ Institucion.direccion }}</li>
-        <li>Teléfono: {{ Institucion.telefono }}</li>
-        <li>email: {{ Institucion.email }}</li>
+        <li>Nombre: {{ institucion.nombre }}</li>
+        <li>Dirección: {{ institucion.direccion }}</li>
+        <li>Teléfono: {{ institucion.telefono }}</li>
+        <li>email: {{ institucion.email }}</li>
     </ul>
     <div>
         <a href="{% url 'Tratamiento:lista_institucion' %}">Volver</a>

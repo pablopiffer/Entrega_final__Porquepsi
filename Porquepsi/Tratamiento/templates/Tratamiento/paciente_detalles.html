@@ -7,13 +7,13 @@
 {% endblock body_title %}
 {% block content %}
     <ul>
-        <li>Nombre: {{ Paciente.nombre }}</li>
-        <li>Teléfono: {{ Paciente.telefono }}</li>
-        <li>email: {{ Paciente.email }}</li>
-        <li>Dirección: {{ Paciente.direccion }}</li>
-        <li>Profesional: {{ Paciente.profesional }}</li>
-        <li>Institución: {{ Paciente.institucion }}</li>
-        <li>Número de historia clínica: {{ Paciente.numero_historia_clinica }}</li>
+        <li>Nombre: {{ paciente.nombre }}</li>
+        <li>Teléfono: {{ paciente.telefono }}</li>
+        <li>email: {{ paciente.email }}</li>
+        <li>Dirección: {{ paciente.direccion }}</li>
+        <li>Profesional: {{ paciente.profesional }}</li>
+        <li>Institución: {{ paciente.institucion }}</li>
+        <li>Número de historia clínica: {{ paciente.numero_historia_clinica }}</li>
     </ul>
     <div>
         <a href="{% url 'Tratamiento:lista_pacientes' %}">Volver</a>

@@ -32,7 +32,7 @@ class Paciente(models.Model):
     profesional = models.ForeignKey(Profesional, on_delete=models.SET_NULL, null=True, blank=True)
     institucion = models.ForeignKey(Institucion, on_delete=models.SET_NULL, null=True, blank=True)
     numero_historia_clinica = models.CharField(max_length=100, unique=True, null=True, blank=True)
-    activo = models.BooleanField(default=True)  # Campo agregado
+    activo = models.BooleanField(default=True) 
 
     def __str__(self):
         return self.nombre
