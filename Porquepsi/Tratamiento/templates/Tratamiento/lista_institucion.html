@@ -17,7 +17,7 @@
             <li>
                 {{ ins.nombre }}
                 <a href="{% url 'Tratamiento:institucion_detalles' ins.id %}">Detalle</a>
-                <a href="{% url 'Tratamiento:institucion_form' %}">Cambiar</a>
+                <a href="{% url 'Tratamiento:institucion_update' ins.id %}">Cambiar</a>
                 <a href="{% url 'Tratamiento:institucion_confirm_delete' ins.id %}">Borrar</a>
             </li>
         {% endfor %}

@@ -84,7 +84,6 @@ class PacienteDetail(LoginRequiredMixin, DetailView):
 class PacienteUpdate(LoginRequiredMixin, UpdateView):
     model = Paciente
     form_class = TratamientopacienteForm
-    template_name = "paciente_form.html"
     success_url = reverse_lazy("Tratamiento:lista_pacientes")
 
 

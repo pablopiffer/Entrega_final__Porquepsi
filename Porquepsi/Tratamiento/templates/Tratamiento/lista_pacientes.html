@@ -17,7 +17,7 @@
             <li>
                 {{ pac.nombre }}
                 <a href="{% url 'Tratamiento:paciente_detalles' pac.id %}">Detalle</a>
-                <a href="{% url 'Tratamiento:paciente_form' %}">Cambiar</a>
+                <a href="{% url 'Tratamiento:paciente_update' pac.id %}">Cambiar</a>
                 <a href="{% url 'Tratamiento:paciente_confirm_delete' pac.id %}">Borrar</a>
             </li>
         {% endfor %}
