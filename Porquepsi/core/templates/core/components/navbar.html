@@ -19,7 +19,7 @@
                        href="{% url 'core:index' %}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#!">Nosotros</a>
+                    <a class="nav-link" href="{% url 'core:nosotros' %}">Nosotros</a>
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">

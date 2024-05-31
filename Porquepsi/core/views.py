@@ -22,3 +22,6 @@ def register(request: HttpRequest) -> HttpResponse:
     else:
         form = CustomUserCreationForm()
     return render(request, "core/register.html", {"form": form})
+
+def nosotros(request):
+    return render(request, 'core/nosotros.html')

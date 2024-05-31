@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    Porque Psi 
+{% endblock title %}
+
+{% block body_title %}
+{% endblock body_title %}
+
+{% block content %}
+
+    <!-- Page Content-->
+    <div class="container px-4 px-lg-5">
+        
+        {% if user.is_authenticated %}
+            <p class="text-info ">¡Bienvenido {{ user.username | title }}!</p>
+        {% endif %}
+        
+        <!-- Mensaje para cuando un usuario sea creado -->
+        {% if mensaje %}
+            <p class="text-info ">{{ mensaje }} ¡Bienvenido!</p>
+        {% endif %}
+
+        <!-- Heading Row-->
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0"
+                    src="{% static 'core/img/cerebro.webp' %}" alt="..." /></div>
+            <div class="col-lg-5">
+                <h1 class="font-weight-light">Sobre el proyecto:</h1>
+                <p>
+                    En "Porque psi", ofrecemos una solución integral diseñada específicamente para profesionales de la salud mental. Nuestra plataforma proporciona herramientas de gestión, registro y organización que facilitan la labor diaria de psicólogos, psiquiatras y terapeutas. Con una interfaz intuitiva y funcionalidades avanzadas, los usuarios pueden llevar un control exhaustivo de sus consultas, programar citas, gestionar expedientes clínicos y realizar seguimientos detallados de cada paciente. Así, permitimos que los profesionales se concentren en lo que realmente importa: brindar una atención de calidad.
+
+                    Nuestro compromiso en "Porque psi" es transformar la práctica de la salud mental mediante la innovación tecnológica. Sabemos que la eficiencia administrativa es clave para optimizar el tiempo y mejorar la calidad del servicio. Por eso, nuestras herramientas están diseñadas para integrarse sin esfuerzo en la rutina diaria, ofreciendo seguridad, confidencialidad y accesibilidad en todo momento. Únete a nuestra comunidad y descubre cómo "Porque psi" puede potenciar tu práctica, simplificar tus procesos y llevar tu carrera profesional al siguiente nivel.  
+
+                </p>
+                <a class="btn btn-primary" href="https://wa.me/541162414032" target="_blank">Whatsapp</a>
+            </div>
+        </div>
+        
+    {% endblock content %}
