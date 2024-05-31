@@ -9,6 +9,10 @@ Tutor: Juan Manuel Romano
 Alumno:
 Pablo Piffer
 
+## Grabación del proyecto:
+
+https://www.youtube.com/watch?v=Ln2WuF3MIrw
+
 ## Explicación del proyecto:
 
 Porque Psi nace como una necesidad personal. Soy psicólogo clínico hace 10 años y me es difícil llevar la administración de mis pacientes, turnos, pagos, obras sociales, consultorios, etc. Este proyecto está pensado para dar respuesta a cada una de las necesidades administrativas que tenemos los profesionales de la salud mental.
